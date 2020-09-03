@@ -1,0 +1,23 @@
+#!/dis/sh
+# usage: isepaste file
+
+load std
+
+file = ;
+args = $*
+argv0 = $0
+
+fn usage {
+	echo >[1=2] usage: $argv0 filename
+	exit usage
+}
+
+if {~ $#args 1} {
+	file = /fd/0
+} {
+	file = $1
+}
+
+body = 'paste='^`{cat $file}
+
+webgrab -p $body -o - http://paste.iseage.org

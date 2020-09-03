@@ -1,0 +1,3 @@
+#!/dis/sh
+hdir = `{os pwd}
+os -d ./ git -C $hdir/`{pwd} $*

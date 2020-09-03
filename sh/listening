@@ -1,0 +1,12 @@
+#!/dis/sh
+# Echo a shell string to disconnect TCP listeners
+
+load std
+
+for f in `{ls /net/tcp} { 
+if {test -d $f} {
+	if{grep -s Announced $f/status} {
+		echo 'echo hangup > '$f'/ctl'
+	}
+}
+}
